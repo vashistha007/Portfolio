@@ -106,7 +106,7 @@ nav ul li a:hover {
 .hamburger .line {
   width: 25px;
   height: 2px;
-  background-color: #1f1f1f;
+  background-color: #ffbe13;
   display: block;
   margin: 7px auto;
   transition: all 0.3s ease-in-out;
@@ -136,7 +136,7 @@ nav ul li a:hover {
 }
 
 .menubar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -60%;
   display: flex;
@@ -147,7 +147,7 @@ nav ul li a:hover {
   padding: 20% 0;
   background: rgba(255, 255, 255);
   transition: all 0.5s ease-in;
-  z-index: 2;
+  z-index: 5;
 }
 .active {
   left: 0;
@@ -197,11 +197,30 @@ nav ul li a:hover {
     top: -50px;
     background-color: #c6c6c6;
     
+    
    
   }
+  @media only screen and (max-width: 600px) {
+    #container {
+      /* background-color: lightblue; */
+      display: flex;
+      top: 0px;
+      align-items: start;
+      flex-direction: column;
+      height: 180vw;
+    }
+  }
+  
+  
 
     @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@400;700&display=swap');
 
+    .innerintro {
+     
+  }
+  
+ 
+  
     .intro {
       font-family: "Encode Sans Expanded", sans-serif;
       position: relative;
@@ -217,15 +236,29 @@ nav ul li a:hover {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 12vw;
+      padding-left: 75px;
       clip-path: polygon(0% 0%, 100% 0%, calc(100% - 15vw) 100%, 0% 100%);
       background:black;
      
+    }
+    @media only screen and (max-width: 600px) {
+      .intro {
+        position: relative;
+        top: -2vw;
+        display: flex;
+        height:  -webkit-fill-available; /* Note: You had height and width defined twice, I've kept the last values */
+        width: 82%;
+        padding: 0px 40px;
+        clip-path: polygon(0% 0%, 100% 0%, calc(100% - 0vw) 80%, 0% 100%);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        
+      }
     }
     
 .intro p{
   transform: translateY(-20px);  /* Start slightly above */
   animation: logoTransition  1.3s ease-out forwards;  /* Apply transition effect */
+  font-size: 20px;
 }
 .intro h1 {
  
@@ -240,29 +273,77 @@ nav ul li a:hover {
 }
 
 .intro h2 {
-  position: absolute;
-  font-size: 1.7vw;
+  position: relative;
+  font-size: 25px;
   color: #FF5F1F;
   opacity: 0;
   transform: translateY(-20px);  /* Start slightly above */
   animation: logoTransition 1.7s ease-out forwards;  /* Apply transition effect */
-  top: 23vw;
+  top: 0vw;
+  margin:  0px;
   font-family: "Roboto", sans-serif;
  
 }
 
 .intro h3 {
     position: relative;
-    top: 4vw;
-  font-size: 1.2vw;
+    /* top: 4vw; */
+  font-size: 16px;
   font-weight: 400;
-  
-  width: 30vw;
+  margin-top: 15px;
+    width: 35vw;
   opacity: 0;
   transform: translateY(-20px);  /* Start slightly above */
   animation: logoTransition 2s ease-out forwards;  /* Apply transition effect */
-  font-family: "Roboto", sans-serif;
+  font-family:  "Oswald", sans-serif;
 }
+@media only screen and (max-width: 600px) {
+  #container{
+    background-color: #4158D0;
+ 
+background: #F4A722;
+background: conic-gradient(from 135deg, #F4A722, #F4D8A8);
+  }
+  .intro h3 {
+    /* background-color: lightblue; */
+    width: 100%;
+    font-size: 13px;
+    margin-top: 25px;
+
+    
+  }
+  .intro h1 {
+    /* background-color: lightblue; */
+    font-size: 30px;
+     /* transform: rotateZ(45deg);  */
+     /* transform: rotate(322deg) skew(323deg, 17deg); */
+
+
+    
+  }
+  .intro h2 {
+    position: relative;
+    font-size: 16px;
+
+    top: 0px;
+    
+  }
+  .intro p{
+    font-size: 15px;
+  }
+  .innerintro {
+    /* border: 2px solid red; */
+    position: relative;
+    /* top: 12vw; */
+    position: relative;
+    top: 12vw;
+    transform:   rotate(323deg) skew(323deg, 13deg);
+        transform-origin: center;
+}
+
+  
+}
+
 
 .intro :nth-child(1) {
   animation-delay: 0s;
@@ -282,7 +363,7 @@ nav ul li a:hover {
 .intro button {
   position: relative;
   /* left: 40%; */
-  top: 4vw;
+  /* top: 4vw */
   margin-top: 2vw;
   border-radius: 5vw;
   height: 2.2vw;
@@ -295,6 +376,20 @@ nav ul li a:hover {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
+@media only screen and (max-width: 600px) {
+  .intro button {
+    top: 4vw;
+  margin-top: 2vw;
+  border-radius: 5vw;
+  height: 6vw;
+  width: 16vw;
+  }
+  nav .logo img {
+    width: 20vw;
+    /* margin-right: 10px; */
+}
+}
+
 
 /* Keyframes for slide-in animation */
 @keyframes slideiin {
@@ -320,6 +415,8 @@ background:#8888889c;
 overflow: hidden;
 
 }
+
+
 .photo {
   position: relative;
     /* border: 2px solid red; */
@@ -340,6 +437,35 @@ overflow: hidden;
     animation: photoFadeIn 1s ease forwards 1.5s; /* Fade in with delay */
   
     
+  }
+  @media only screen and (max-width: 600px) {
+    .imgbackground {
+      position: absolute;
+      /* background-color: lightblue; */
+      left: 28%;
+      top: 30px;
+      width: 26vw;
+      height: 34vw;
+      transform: rotate(19deg) skew(351deg, 25deg);
+
+
+  
+      
+    }
+    .photo{
+      left: -29px;
+      width: 196px;
+      /* height: fit-content; */
+      margin: 0px 20px;
+      top: -10px;
+      /* transform: rotate(322deg) skew(323deg, 17deg); */
+
+    }
+    .photo img{
+          width: 28vw;
+          /* transform: rotate(322deg) skew(323deg, 17deg); */
+
+    }
   }
   
   /* Keyframes for photo fade-in and scale effect */
@@ -386,12 +512,23 @@ overflow: hidden;
   font-family: "Roboto", sans-serif;
   font-size: 50px;
   /* margin: 8vw; */
-  margin-left: 10vw;
+  margin-left: 4vw;
   top: 1vw;
   transition: top 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.8s cubic-bezier(4.4, 0.0, 0.2, 1); 
 }
 
 
+
+.ellipses2{
+  /* border: 2px solid red; */
+  display: none;
+  position: relative;
+}
+.ellipses3{
+  /* border: 2px solid red; */
+  display: none;
+  position: relative;
+}
 
 
 .ellipse1,.ellipse2,.ellipse3,.ellipse4,.ellipse5,.ellipse6,.ellipse7 {
@@ -487,6 +624,8 @@ overflow: hidden;
     animation:gelatine 0.5s ease-in-out ;
   }
 
+  
+
   @keyframes gelatine {
     from, to { transform: scale(1, 1); }
     25% { transform: scale(0.9, 1.1); }
@@ -508,7 +647,7 @@ overflow: hidden;
     align-items: center;
     padding: 0vw 3vw;
     border-radius: 3vw;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     background: linear-gradient(109.71deg, rgba(255, 255, 255, 0.05) -10.84%, rgba(255, 255, 255, 0.001) 110.62%);
     border: 1px solid #FFFFFF33;
     transition: transform 0.5s cubic-bezier(3, 0, 0, 1);
@@ -519,6 +658,63 @@ overflow: hidden;
     left: 33.3%;
   }
   
+  @media only screen and (max-width: 600px) {
+    #about  {
+         flex-direction: column;
+       
+         background: #000;
+         position: relative;
+    
+    width: 100%;
+    height: 180vw;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* top: -4vw; */
+    /* z-index: -1; */
+  
+    /* background-position: center center; */
+    /* background-repeat: no-repeat; */
+    border: none;
+    }
+    #about h1 {
+      position: relative;
+      top: -80px;
+      opacity: 0;
+      animation: slid 1s ease-out forwards;
+    }
+    
+    @keyframes slid {
+      0% {
+        top: -80px;
+        opacity: 0;
+      }
+      100% {
+        top: -50px;
+        opacity: 1;
+      }
+    }
+    
+    .ellipses2{
+      /* border: 2px solid red; */
+      display: block;
+      position: relative;
+      top: 27%;
+    }
+    .ellipses3{
+      /* border: 2px solid red; */
+      display: block;
+      position: relative;
+      top: 50%;
+    }
+    .cont1{
+      width: 70%;
+      height: 450px;
+      font-size: 16px;
+      top:-78px;
+    }
+   }
   #skills{
       position: relative;
       width: 100%;
@@ -547,7 +743,7 @@ background: rgb(9 9 10);
 border-radius: 30px;
   }
     .skills-section {
-    width: 52vw;
+    width: 62vw;
     margin: 0 auto;
     padding: 20px;
     backdrop-filter: blur(15px);
@@ -557,7 +753,10 @@ border-radius: 30px;
     box-shadow: 12px 16px 154px rgb(247 255 0 / 25%);
     transition: transform 0.5s ease; /* Smooth transition for transform effects */
     opacity: 0.5; /* Start with opacity 0 */
-    background-image: radial-gradient(circle at center, #ffef0057, #ffd80030, #f5ff0012);    
+    background-image: radial-gradient(circle at center, #ffef0057, #ffd80030, #f5ff0012); 
+    left: 48px;
+    position: relative;
+   
   }
   
   .skills-section.animate {
@@ -583,7 +782,7 @@ border-radius: 30px;
     text-align: center;
     /* text-decoration: underline; */
     transition: top 0.7s ease, transform 0.3s ease;
-    right: 5vw;
+    right: 3vw;
     opacity: 0;
     font-family: "Roboto", sans-serif;
     font-size: 50px;
@@ -614,7 +813,7 @@ border-radius: 30px;
     font-weight: bold;
     color: #FFFFFF;
     background: transparent;
-    font-size: 0.7vw;
+    font-size: 1vw;
   }
   
   .skill-bar {
@@ -637,11 +836,7 @@ border-radius: 30px;
   }
   
   /* Add hover effect for a more interactive 3D look */
-  .skills-section:hover {
-    transform: rotateY(30deg) rotateX(10deg) translateX(-20%) scale(1.05); /* Enhance 3D effect on hover */
-    /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 
-                0 12px 24px rgba(0, 0, 0, 0.3); Deepen shadow on hover */
-  }
+ 
   
 .bulb{
   position: relative;
@@ -659,7 +854,72 @@ border-radius: 30px;
   left: 37.2%;
   background-color: #FFFFFF;
 }
-  
+
+@media only screen and (max-width: 600px) {
+  .skillmain{
+    flex-direction: column-reverse;
+    perspective: none;
+  }
+  .skills-section{
+    width: 88vw;
+    backdrop-filter: blur(10px);
+
+    
+  }
+  .skills-section{
+    transition: none;
+    transform: none;
+    padding: 10px;
+    opacity: 1;
+  }
+
+
+  .skills-section.animate{
+    animation: none;
+    backdrop-filter: none;
+  }
+  .skill-bar{
+    height: 2.5vw;
+  }
+  .skill-percentage{
+    height: 2.5vw;
+  }
+  .skill-name{
+    font-size: 3.5vw;
+  }
+  .bulb{
+    position: relative;
+    /* position: absolute; */
+        left: 0%;
+        top: -34%;
+        width: 12vw;
+        height: 12vw;
+        z-index: -2;
+  }
+  .wire{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    z-index: -2;
+
+  }
+   .blurry{
+    position: absolute;
+    width: 88vw;
+    margin: 0 auto;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    /* border: 1px solid #FFFFFF33; */
+    border-radius: 1.5vw;
+    top: 25.5%;
+    height: 80vw;
+    z-index: -1;
+   }
+}
+
+
+
+
 /* projects */
 
 #projects {
@@ -845,6 +1105,37 @@ border: 1px solid rgba(255, 255, 255, 0.2);
    background: linear-gradient(109.71deg, rgba(255, 255, 255, 0.05) -10.84%, rgba(255, 255, 255, 0.001) 110.62%);   
 }
 
+@media only screen and (max-width: 600px) {
+
+  #projects{
+    height: auto;
+  }
+  .batches{
+    height: auto;
+  }
+  .batch1, .batch2{
+    height: auto;
+    flex-direction: column;
+  }
+  .proj{
+    background-size: 150% auto;
+    width: 80%;
+    height: 30vw;
+  }
+  .myprojheading{
+    width: 197vw;
+  }
+  .myprojheading h1{
+    font-size: 8vw;
+  }
+  .additional-class{
+    padding: 0vw 8vw;
+  }
+  .additional-class:hover{
+    width: 90%;
+    margin: 8vw 0vw;
+  }
+}
 
 /* contact us */
 #contact-us{
@@ -852,7 +1143,7 @@ border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   width: 100%;
   top: 10vw;
-  height: 45vw;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -863,7 +1154,7 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 .con2{
   position: relative;
   width: 100%;
-  height: 36.3vw;
+  height: auto;
   border: 1px solid white;
   display: flex;
   flex-direction: row;
@@ -871,8 +1162,8 @@ border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgb(103 102 102 / 53%);
   backdrop-filter: blur(20px);  backdrop-filter: blur(20px);
 }
-.con1{
-  /* border: 2px solid yellow; */
+
+.con1 {
   position: relative;
   width: 80%;
   height: 36.2vw;
@@ -880,26 +1171,37 @@ border: 1px solid rgba(255, 255, 255, 0.2);
   flex-direction: column;
   justify-content: center;
   background-color: #000;
-  clip-path: polygon(0 0, 100% 0, calc(100% - 12vw) 100%, 0% 100%);
-
-  
-  
+  transition: clip-path 1s ease; /* Transition for clip-path */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Initial clip-path */
 }
-.con{
-  /* border: 2px solid yellow; */
+
+.con1.visible {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12vw) 100%, 0% 100%); /* Target clip-path */
+}
+
+
+
+.con {
   position: relative;
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   padding: 0vw 4vw;
-  height: 33.3vw;
-  background: linear-gradient(109.71deg, rgb(240 236 236 / 19%) -10.84%, rgb(255 255 255 / 0%) 110.62%);  margin-right: 2vw;
+  background: linear-gradient(109.71deg, rgb(240 236 236 / 19%) -10.84%, rgb(255 255 255 / 0%) 110.62%);
+  margin-right: 2vw;
   border-radius: 15px;
-  
-  
+  height: auto;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Transition properties */
 }
+
+.con.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Final position */
+}
+
 .container {
   max-width: 600px;
   margin: 50px auto;
@@ -993,14 +1295,71 @@ textarea {
   /* background-color: #4158D0; */
   /* border-radius: 1px; */
 }
-.img11{
-  /* border: 1px solid red; */
+.img11 {
+  /* Your existing styles */
   width: 2.5vw;
   height: 2.5vw;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
- background: #d9d9d987;
-  ;
+  background: #d9d9d987;
+  /* Add transition for smooth animation */
+  transition: transform 0.5s ease;
 }
+
+.img11:hover {
+  /* Scale up on hover */
+  transform: scale(1.2);
+  background-image: linear-gradient(to right, #f83600b5 0%, #f9d423a8 100%);
+
+  }
+  @media only screen and (max-width: 600px) {
+    .social {
+      display: none;
+    }
+    .img11{
+      display: none;
+    }
+    .con2{
+      flex-direction: column;
+      height: 800px;
+      justify-content: center;
+    }
+    .con1{
+      height: auto;
+        /* right: 10%; */
+        /* font-size: 30px; */
+        top: -2%;
+        position: relative;
+    }
+    .con1 h1{
+     font-size: 6vw;
+   }
+    .con{
+      height: 600px;
+      width: 90%;
+      margin: 10px 0px;
+
+    }
+    .con2{
+      border-radius: 10px;
+    }
+    label{
+      font-size: 5vw;
+    }
+    input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea{
+  font-size: 5vw;
+  height: 8vw;
+  margin-bottom: 18px ;
+}
+#btn{
+  font-size: 5vw;
+  width: 30%;
+  left: 35%;
+}
+
+  }

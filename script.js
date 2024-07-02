@@ -68,27 +68,39 @@ window.addEventListener('scroll', function() {
   const scrollPosition = window.scrollY;
   const screenHeight = window.innerHeight;
 
+  // Adjust the frequency divisor based on screen width
+  let frequencyDivisor = 2; // Default value
+
+  if (window.innerWidth <= 600) {
+    frequencyDivisor = 4; // Increase the divisor to slow down the movement
+  }
+
   // Calculate the transformation based on the scroll position
   // Move from right to left and vice versa
   const maxTransform = 100; // Maximum transform value in pixels
-  const frequencyDivisor = 2; // Adjust this value to control the speed
   const transformValue = Math.sin(scrollPosition / (screenHeight * frequencyDivisor) * Math.PI) * -maxTransform;
   
   cont1.style.transform = `translateX(${transformValue}px)`;
 });
 
 
+
 window.addEventListener('scroll', function() {
   const aboutHeading = document.querySelector('#about h1');
   const scrollPosition = window.scrollY;
-  
-  // Calculate the transformation based on the scroll position
   const maxTransform = 300; // Maximum transform value in pixels
   const transformValue = scrollPosition * 0.3; // Adjust this value to control the speed
-  
-  // Apply the transformation
-  aboutHeading.style.top = `${transformValue}px`;
+
+  // Check if the screen width is greater than 600px
+  if (window.innerWidth > 600) {
+    // Apply the transformation
+    aboutHeading.style.top = `${transformValue}px`;
+  } else {
+    // Reset the transformation if screen width is 600px or less
+    aboutHeading.style.top = '';
+  }
 });
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -190,7 +202,42 @@ window.addEventListener('load', function() {
   document.querySelector('.social').classList.add('visible');
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  var elements = document.querySelectorAll('.con1');
 
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.1 // Adjust this threshold as needed
+  });
 
+  elements.forEach(function(element) {
+    observer.observe(element);
+  });
+});
 
+document.addEventListener('DOMContentLoaded', function() {
+  var elements = document.querySelectorAll('.con');
 
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.1 // Adjust this threshold as needed
+  });
+
+  elements.forEach(function(element) {
+    observer.observe(element);
+  });
+});
